@@ -23,8 +23,9 @@ class CassavaDataset(Dataset):
         self.transform = transform
         self.mode = mode
 
-        le = LabelEncoder()
-        self.df['class'] = le.fit_transform(self.df['class'])
+        if mode == 'train':
+            le = LabelEncoder()
+            self.df['class'] = le.fit_transform(self.df['class'])
 
         self.ids = self.df['files'].values
         if self.mode == 'train' or self.mode == 'valid':
