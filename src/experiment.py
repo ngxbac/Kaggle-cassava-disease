@@ -40,13 +40,13 @@ class Experiment(ConfigExperiment):
             df=train_csv,
             root=datapath,
             mode='train',
-            transform=train_aug(224),
+            transform=train_aug(320),
         )
         testset = CassavaDataset(
             df=valid_csv,
             root=datapath,
             mode='valid',
-            transform=valid_aug(224),
+            transform=valid_aug(320),
         )
 
         datasets["train"] = trainset
